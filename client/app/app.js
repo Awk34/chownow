@@ -6,7 +6,9 @@ angular.module('hackshareApp', [
     'ngSanitize',
     'btford.socket-io',
     'ui.router',
-    'ui.bootstrap'
+    'ui.bootstrap',
+    'angularFileUpload',
+    'ngMaterial'
 ])
     .config(function ($stateProvider, $urlRouterProvider, $locationProvider, $httpProvider) {
         $urlRouterProvider
@@ -37,24 +39,6 @@ angular.module('hackshareApp', [
                 }
                 else {
                     return $q.reject(response);
-                }
-            }
-        };
-    })
-
-    .factory('locationFactory', function ($rootScope, $q, $cookieStore, $location) {
-        return {
-            get_location: function () {
-                if (Modernizr.geolocation) {
-                    navigator.geolocation.getCurrentPosition(function (position) {
-                        console.log("Latitude: " + position.coords.latitude +
-                        "\nLongitude: " + position.coords.longitude);
-
-                        $rootScope.location = position;
-                        console.log(position);
-                    });
-                } else {
-                    // no native support; maybe try a fallback?
                 }
             }
         };
