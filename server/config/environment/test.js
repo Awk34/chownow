@@ -3,8 +3,8 @@
 // Test specific configuration
 // ===========================
 module.exports = {
-  // MongoDB connection options
-  mongo: {
-    uri: 'mongodb://localhost/chownow-test'
-  }
+    // MongoDB connection options
+    mongo: {
+        uri: 'mongodb://localhost/hackshare-test'
+    }
 };

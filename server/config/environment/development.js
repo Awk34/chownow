@@ -3,10 +3,10 @@
 // Development specific configuration
 // ==================================
 module.exports = {
-  // MongoDB connection options
-  mongo: {
-    uri: 'mongodb://localhost/chownow-dev'
-  },
+    // MongoDB connection options
+    mongo: {
+        uri: 'mongodb://localhost/hackshare-dev'
+    },
 
-  seedDB: true
+    seedDB: true
 };
