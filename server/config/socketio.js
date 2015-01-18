@@ -18,6 +18,8 @@ function onConnect(socket) {
     });
 
     // Insert sockets below
+    require('../api/file/file.socket').register(socket);
+    require('../api/postmates/postmates.socket').register(socket);
     require('../api/hack/hack.socket').register(socket);
     require('../api/thing/thing.socket').register(socket);
 }
