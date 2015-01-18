@@ -13,12 +13,12 @@ angular.module('hackshareApp')
 
         geoFactory.getPosition().then(function(position) {
             geoFactory.getLocation(position).then(function(results) {
-                console.log(results);
+                //console.log(results);
                 $scope.firstLocation = results[1];
-                console.log($scope.firstLocation['formatted_address']);
+                //console.log($scope.firstLocation['formatted_address']);
                 _.forEach(results[1]['address_components'], function(component) {
                     if(_.contains(component.types, 'locality')) {
-                        console.log(component);
+                        //console.log(component);
                         $scope.city = component['short_name'];
                     }
                 });
@@ -36,7 +36,7 @@ angular.module('hackshareApp')
                         } else {
                             console.log('whut is dis');
                         }
-                        console.log(results);
+                        //console.log(results);
                     });
             }, function(results) {
                 console.log('failed because '+status);

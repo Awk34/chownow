@@ -25,11 +25,11 @@ angular.module('hackshareApp')
                     if(!initialized) initialize();
                     if (Modernizr.geolocation) {
                         navigator.geolocation.getCurrentPosition(function (position) {
-                            console.log("Latitude: " + position.coords.latitude +
-                            "\nLongitude: " + position.coords.longitude);
+                            //console.log("Latitude: " + position.coords.latitude +
+                            //"\nLongitude: " + position.coords.longitude);
 
                             $rootScope.location = position;
-                            console.log(position);
+                            //console.log(position);
                             resolve(position);
                         });
                     } else {
