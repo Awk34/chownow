@@ -7,15 +7,23 @@ var HackSchema = new Schema({
     name: String,
     tagline: String,
     description: String,
-    fileId: mongoose.Schema.ObjectId,
-    imageId: mongoose.Schema.ObjectId,
+    fileId: Schema.ObjectId,
+    imageId: Schema.ObjectId,
     tags: [String],
     author: {
-        id: mongoose.Schema.ObjectId,
-        imageId: mongoose.Schema.ObjectId,
+        id: Schema.ObjectId,
+        imageId: Schema.ObjectId,
         name: String
     },
-    date: Date
+    date: Date,
+    price: Number,
+    currency: String,
+    purchaseOptions: [
+        {
+            name: String,
+            priceChange: Number
+        }
+    ]
 });
 
 module.exports = mongoose.model('Hack', HackSchema);
