@@ -5,12 +5,13 @@ var Hack = require('./hack.model');
 
 // Get list of hacks
 exports.index = function (req, res) {
-    Hack.find(function (err, hacks) {
-        if (err) {
-            return handleError(res, err);
-        }
-        return res.json(200, hacks);
-    });
+    Hack.find()
+        .limit(20)
+        .sort('date')
+        .exec(function(err, hacks) {
+            if(err) return handleError(res, err);
+            return res.status(200).json(hacks);
+        });
 };
 
 // Get a single hack
