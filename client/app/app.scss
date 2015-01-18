@@ -15,6 +15,10 @@ $primaryTextColor: #212121;
 $secondaryTextColor: #727272;
 $dividerColor: #B6B6B6;
 
+$statusGreen: #06ff00;
+$statusRed: #ff1100;
+$statusYellow: #faff00;
+
 /**
  * App-wide Styles
  */
@@ -28,6 +32,23 @@ $dividerColor: #B6B6B6;
 
 .hero-unit {
     background-color: $primaryColor;
+}
+
+.status-light-green {
+    color: $statusGreen;
+}
+.status-light-red {
+    color: $statusRed;
+}
+.status-light-yellow {
+    color: $statusYellow;
+}
+.status-light-gray {
+    color: $secondaryTextColor;
+}
+
+md-tooltip {
+    z-index: 1001;
 }
 
 // Component styles are injected through grunt
