@@ -23,7 +23,8 @@ var HackSchema = new Schema({
             name: String,
             priceChange: Number
         }
-    ]
+    ],
+    address: String
 });
 
 module.exports = mongoose.model('Hack', HackSchema);

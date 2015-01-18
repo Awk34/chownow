@@ -69,6 +69,8 @@ conn.once('open', function(err) {
                 name: 'Test User',
                 email: 'test@test.com',
                 password: 'test',
+                phoneNumber: '555-555-5555',
+                address: '3601 Walnut Street, Philadelphia, PA 19104',
                 imageId: userImgFile._id
             }, {
                 provider: 'local',
@@ -76,6 +78,8 @@ conn.once('open', function(err) {
                 name: 'Admin',
                 email: 'admin@admin.com',
                 password: 'admin',
+                phoneNumber: '555-555-5555',
+                address: '3601 Walnut Street, Philadelphia, PA 19104',
                 imageId: userImgFile._id
             })
                 .then(function() {
@@ -101,6 +105,7 @@ conn.once('open', function(err) {
                                 date: new Date(),
                                 price: 40.00,
                                 currency: 'usd',
+                                address: 'Class of 1923 Ice Rink, Philadelphia, PA 19104',
                                 imageUri: 'data/amp.jpg'
                             }, {
                                 name: 'USB Condom',
@@ -115,6 +120,7 @@ conn.once('open', function(err) {
                                 date: new Date(),
                                 price: 10.00,
                                 currency: 'usd',
+                                address: 'Class of 1923 Ice Rink, Philadelphia, PA 19104',
                                 imageUri: 'data/usb-condom.jpg'
                             }, {
                                 name: 'ATtiny Programming Shield for Arduino',
@@ -129,6 +135,7 @@ conn.once('open', function(err) {
                                 date: new Date(),
                                 price: 10.00,
                                 currency: 'usd',
+                                address: 'Class of 1923 Ice Rink, Philadelphia, PA 19104',
                                 imageUri: 'data/attiny-shield.jpg'
                             }, {
                                 name: 'Arduino home energy monitor shield',
@@ -143,6 +150,7 @@ conn.once('open', function(err) {
                                 date: new Date(),
                                 price: 25.00,
                                 currency: 'usd',
+                                address: 'Class of 1923 Ice Rink, Philadelphia, PA 19104',
                                 imageUri: 'data/home-energy-shield.jpg'
                             }, {
                                 name: '2-Player Raspberry Pi Arcade Machine',
@@ -159,6 +167,7 @@ conn.once('open', function(err) {
                                 date: new Date(),
                                 price: 125.00,
                                 currency: 'usd',
+                                address: 'Class of 1923 Ice Rink, Philadelphia, PA 19104',
                                 imageUri: 'data/bartop-arcade.jpg'
                             }];
 

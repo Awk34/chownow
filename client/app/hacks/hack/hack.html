@@ -1,0 +1,30 @@
+<div ng-include="'components/navbar/navbar.html'"></div>
+
+<div class="container">
+    <div>
+        <img ng-src="/api/files/{{hack.imageId}}.jpg" class="center-block" style="max-height: 400px; display: inline-block;" alt=""/>
+        <div style="display: inline-block">
+            <h2>Price: ${{hack.price}}</h2>
+            <h3>Delivery Quote: ${{quoteFee}}</h3>
+            <h3>Estimated Arrival: {{estimatedArrival}}</h3>
+            <md-button style="padding: 10px; font-size: 24px; color: #00BCD4;" ng-click="placeOrder()">
+                Order
+            </md-button>
+        </div>
+    </div>
+
+    <div id="map-container" style="height: 200px;"></div>
+
+    <h1 class="page-header">{{hack.name}} <small>{{hack.tagline}}</small></h1>
+
+    <div class="lead">{{hack.description}}</div>
+</div>
+
+<footer class="footer">
+    <div class="container">
+        <p>
+            HackShare |
+            <a href="https://github.com/Awk34/hackshare">GitHub</a>
+        </p>
+    </div>
+</footer>

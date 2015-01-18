@@ -19,7 +19,10 @@ var UserSchema = new Schema({
     twitter: {},
     google: {},
     github: {},
-    imageId: Schema.ObjectId
+    imageId: Schema.ObjectId,
+    address: String,
+    phoneNumber: String,
+    businessName: String
 });
 
 /**
