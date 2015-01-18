@@ -1,14 +1,46 @@
 'use strict';
 
 angular.module('hackshareApp')
-    .controller('NavbarCtrl', function ($rootScope, $scope, $location, Auth, geoFactory, $mdDialog) {
+    .controller('NavbarCtrl', function ($rootScope, $scope, $location, Auth, geoFactory, $mdDialog, $http) {
         $scope.menu = [{
             'title': 'Home',
             'link': '/'
         }];
 
+        $scope.city = null;
+        $scope.firstLocation = null;
+        $scope.deliverability = 'unknown';
+
         geoFactory.getPosition().then(function(position) {
-            geoFactory.getLocation(position);
+            geoFactory.getLocation(position).then(function(results) {
+                console.log(results);
+                $scope.firstLocation = results[1];
+                console.log($scope.firstLocation['formatted_address']);
+                _.forEach(results[1]['address_components'], function(component) {
+                    if(_.contains(component.types, 'locality')) {
+                        console.log(component);
+                        $scope.city = component['short_name'];
+                    }
+                });
+                $http.post('/api/postmates/quote', {
+                    pickup_address: $scope.firstLocation['formatted_address'],
+                    dropoff_address: $scope.firstLocation['formatted_address']
+                    //pickup_address: '113 my kentucky rose cir, simpsonville, ky 40067',
+                    //dropoff_address: '113 my kentucky rose cir, simpsonville, ky 40067'
+                })
+                    .success(function(results) {
+                        if(results.kind === 'error') {
+                            $scope.deliverability = 'bad';
+                        } else if(results.kind === 'delivery_quote') {
+                            $scope.deliverability = 'good';
+                        } else {
+                            console.log('whut is dis');
+                        }
+                        console.log(results);
+                    });
+            }, function(results) {
+                console.log('failed because '+status);
+            })
         }, function() {
             console.log('failed');
         });
@@ -27,18 +59,7 @@ angular.module('hackshareApp')
             return route === $location.path();
         };
 
-        $scope.showConfirm = function(ev) {
-            var confirm = $mdDialog.confirm()
-                .title('Would you like to delete your debt?')
-                .content('All of the banks have agreed to forgive you your debts.')
-                .ariaLabel('Lucky day')
-                .ok('Please do it!')
-                .cancel('Sounds like a scam')
-                .targetEvent(ev);
-            $mdDialog.show(confirm).then(function() {
-                $scope.alert = 'You decided to get rid of your debt.';
-            }, function() {
-                $scope.alert = 'You decided to keep your debt.';
-            });
+        var setLocation = function() {
+
         };
     });

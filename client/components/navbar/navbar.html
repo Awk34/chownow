@@ -14,16 +14,48 @@
                 <li ng-repeat="item in menu" ng-class="{active: isActive(item.link)}">
                     <a ng-href="{{item.link}}">{{item.title}}</a>
                 </li>
+                <li ng-show="isLoggedIn()" ng-class="{active: isActive('/myhacks')}"><a href="/myhacks">My Hacks</a></li>
                 <li ng-show="isAdmin()" ng-class="{active: isActive('/admin')}"><a href="/admin">Admin</a></li>
             </ul>
 
             <ul class="nav navbar-nav navbar-right">
-                <li ng-hide="isLoggedIn()" ng-class="{active: isActive('/signup')}"><a href="/signup">Sign up</a></li>
-                <li ng-hide="isLoggedIn()" ng-class="{active: isActive('/login')}"><a ng-click="showConfirm($event)">Login</a></li>
-                <li ng-show="isLoggedIn()"><p class="navbar-text">Hello {{ getCurrentUser().name }}</p></li>
-                <li ng-show="isLoggedIn()" ng-class="{active: isActive('/settings')}"><a href="/settings"><span
-                    class="glyphicon glyphicon-cog"></span></a></li>
-                <li ng-show="isLoggedIn()" ng-class="{active: isActive('/logout')}"><a href="" ng-click="logout()">Logout</a>
+                <li>
+                    <p class="navbar-text">
+                        {{city}}
+                        <i class="fa fa-fw fa-circle"
+                           ng-class="{
+                               'status-light-green': deliverability === 'good',
+                               'status-light-red': deliverability === 'bad',
+                               'status-light-yellow': deliverability === 'warn',
+                               'status-light-gray': deliverability === 'unknown'
+                           }">
+                            <md-tooltip ng-if="deliverability === 'good'">
+                                You are in a delivery zone!
+                            </md-tooltip>
+                            <md-tooltip ng-if="deliverability === 'warn'">
+                                Warning
+                            </md-tooltip>
+                            <md-tooltip ng-if="deliverability === 'bad'">
+                                Sorry! You aren't in a delivery zone!
+                            </md-tooltip>
+                        </i>
+                    </p>
+                </li>
+                <li ng-hide="isLoggedIn()" ng-class="{active: isActive('/signup')}">
+                    <a href="/signup">Sign up</a>
+                </li>
+                <li ng-hide="isLoggedIn()" ng-class="{active: isActive('/login')}">
+                    <a href="/login">Login</a>
+                </li>
+                <li ng-show="isLoggedIn()">
+                    <p class="navbar-text">Hello {{ getCurrentUser().name }}</p>
+                    <img ng-src="api/files/{{getCurrentUser().imageId}}.jpg" alt="" style="height: 45px; width: 45px; margin: 5px;" class="img-circle"/>
+                </li>
+                <li ng-show="isLoggedIn()" ng-class="{active: isActive('/settings')}">
+                    <a href="/settings"><span class="glyphicon glyphicon-cog"></span></a>
+                </li>
+                <li ng-show="isLoggedIn()" ng-class="{active: isActive('/logout')}">
+                    <a href="" ng-click="logout()">Logout</a>
                 </li>
             </ul>
         </div>
