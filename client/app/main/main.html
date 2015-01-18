@@ -8,35 +8,53 @@
             Welcome to HackShare
         </h1>
         <p class="lead">
-            Facilitating a collaborative environment of constant innovation through a super simple posting, rating, and delivery service.
+            The open marketplace for local hackers and makers.
         </p>
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <h2>Recent Activity:</h2>
+                <ul class="recent-items">
+                    <li ng-repeat="hack in hacks" style="width: 33%; display: inline-block;">
+                        <md-card style="background-color: #00BCD4;">
+                            <img ng-src="api/files/{{hack.imageId}}.jpg" alt="{{hack.name}}">
+                            <md-card-content>
+                                <h2>{{hack.name}}</h2>
+                                <p>{{hack.tagline}} | ${{hack.price}}</p>
+                            </md-card-content>
+                        </md-card>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <form class="thing-form">
+            <!--<label>Synced in realtime with Socket.IO:</label>-->
+
+            <!--<p class="input-group">-->
+                <!--<input type="text" class="form-control" placeholder="Add a new thing here." ng-model="newThing">-->
+                <!--<span class="input-group-btn">-->
+                    <!--<button type="submit" class="btn btn-primary" ng-click="addHack()">Add New</button>-->
+                <!--</span>-->
+            <!--</p>-->
+            <md-button class="md-fab pull-right md-accent" aria-label="Add">
+                <i class="fa fa-plus" style="font-size: 24px;"></i>
+            </md-button>
+        </form>
     </div>
 </header>
 
 <div class="container">
-    <div class="row">
-        <div class="col-lg-12">
-            <h1 class="page-header">Recent Activity:</h1>
-            <ul class="nav nav-tabs nav-stacked col-md-4 col-lg-4 col-sm-6" ng-repeat="hack in awesomeThings">
-                <li>
-                    <a href="#" tooltip="{{hack.info}}">{{hack.name}}
-                        <!--<button type="button" class="close" ng-click="deleteThing(thing)">&times;</button>-->
-                    </a>
-                </li>
-            </ul>
-        </div>
-    </div>
-
-    <form class="thing-form">
-        <label>Synced in realtime with Socket.IO:</label>
-
-        <p class="input-group">
-            <input type="text" class="form-control" placeholder="Add a new thing here." ng-model="newThing">
-      <span class="input-group-btn">
-        <button type="submit" class="btn btn-primary" ng-click="addHack()">Add New</button>
-      </span>
-        </p>
-    </form>
+    <br/>
+    <p class="lead">
+        Bacon ipsum dolor amet ground round proident t-bone id. Velit bresaola kevin elit tri-tip pork loin leberkas. Consequat pork chop short ribs cillum ground round cow irure. Filet mignon brisket do veniam, fatback dolore ham turkey cillum dolor biltong t-bone. Sint non bresaola salami prosciutto. Ground round biltong jowl, kevin elit pork mollit eu.
+    </p>
+    <br/><br/><div class="divider"></div>
+    <p class="lead">
+        Eiusmod ut in bresaola ham hock. Brisket shoulder ea, frankfurter sed est labore shankle pastrami landjaeger beef in. Id consequat ullamco elit ut porchetta. In est hamburger fatback frankfurter. Pastrami et tri-tip landjaeger chicken ullamco do nostrud venison salami shankle magna tempor. Jowl ham voluptate mollit pork belly brisket magna dolore deserunt bacon.
+    </p>
 </div>
 
 <footer class="footer">
