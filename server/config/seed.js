@@ -116,6 +116,50 @@ conn.once('open', function(err) {
                                 price: 10.00,
                                 currency: 'usd',
                                 imageUri: 'data/usb-condom.jpg'
+                            }, {
+                                name: 'ATtiny Programming Shield for Arduino',
+                                tagline: 'Program ATtiny chips via an Arduino',
+                                description: 'This little circuit sits nicely on top of an Arduino board and lets you quickly plug in an ATtiny chip for programming using the Arduino "language" and IDE to write the code, and the Arduino board as an ISP programmer to upload the code to the tiny chip.',
+                                tags: ['electronic', 'programming', 'arduino'],
+                                author: {
+                                    id: user._id,
+                                    imageId: user.imageId,
+                                    name: user.name
+                                },
+                                date: new Date(),
+                                price: 10.00,
+                                currency: 'usd',
+                                imageUri: 'data/attiny-shield.jpg'
+                            }, {
+                                name: 'Arduino home energy monitor shield',
+                                tagline: 'Monitors current in your home\'s breaker box',
+                                description: 'Although products are becoming more and more available for monitoring your home power usage, I\'m one of those idiots who can\'t leave well enough alone and who would rather shell out $100 and hours of my time in order to save $20 and learn something in the process.  Building on the fine work of Trystan Lea and others at OpenEnergyMonitor.org as well as various and sundry web sources and acquaintances the result is a self-contained Arduino shield for monitoring the energy usage of your home using clamp on current transformers, an ethernet shield, and an Arduino. The resulting Energy Monitoring Shield has a built in switching power supply and with mains voltage (120VAC in the US) to the board can do power factor correction as well.  With mains voltage to the board it is also more dangerous than your typical home electronics project and as such has been rejected for distribution by commercial maker outlets like adafruit and sparkfun.  So take that as a warning, and if in doubt, keep one hand in your pocket and out of puddles when handling the board.',
+                                tags: ['electronic', 'monitoring', 'arduino'],
+                                author: {
+                                    id: user._id,
+                                    imageId: user.imageId,
+                                    name: user.name
+                                },
+                                date: new Date(),
+                                price: 25.00,
+                                currency: 'usd',
+                                imageUri: 'data/home-energy-shield.jpg'
+                            }, {
+                                name: '2-Player Raspberry Pi Arcade Machine',
+                                tagline: 'Plays NES, SNES, Megadrive, and arcade (MAME) games',
+                                description: 'The \'Galactic Starcade\' is a DIY retro bartop arcade cabinet for two players. It is powered by the Raspberry Pi micro-computer and plays multiple types of retro games - primarily NES, SNES, Megadrive and arcade (MAME) games. Using a Pi keeps the cost, weight and complexity to a minimum but the cabinet could also house a more powerful PC-based system to play more modern games.\n' +
+                                    'I\'ve always wanted an arcade machine for authentic retro gaming but they take up a lot of space and cost a lot of money. Making a custom bartop cabinet like this one solves both of those problems. It also lets you play potentially thousands of games on a single machine. This project costs under £200 (approx. $320) to make, whereas a prebuilt custom cabinet can set you back four or five times that amount!' +
+                                    'This is my first big DIY project and my first Instructable - be nice! Any questions or feedback are more than welcome in the comments. Also I\'m entering a couple of competitions here on Instructables so if you like the look of the Galactic Starcade please consider voting for me! :)',
+                                tags: ['electronic', 'gaming', 'rpi'],
+                                author: {
+                                    id: user._id,
+                                    imageId: user.imageId,
+                                    name: user.name
+                                },
+                                date: new Date(),
+                                price: 125.00,
+                                currency: 'usd',
+                                imageUri: 'data/bartop-arcade.jpg'
                             }];
 
                             var hackPromises = [];
