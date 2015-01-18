@@ -3,7 +3,12 @@
 angular.module('hackshareApp')
     .controller('MainCtrl', function ($scope, $http, socket) {
         $scope.hacks = [];
+        $scope.recentHacks = [];
         console.log(socket);
+
+        $scope.$watch('hacks', function() {
+
+        });
 
         $http.get('/api/hacks').success(function (hacks) {
             $scope.hacks = hacks;
@@ -11,11 +16,7 @@ angular.module('hackshareApp')
         });
 
         $scope.addHack = function () {
-            if ($scope.newThing === '') {
-                return;
-            }
-            $http.post('/api/things', {name: $scope.newThing});
-            $scope.newThing = '';
+
         };
 
         $scope.$on('$destroy', function () {

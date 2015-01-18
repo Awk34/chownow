@@ -1,6 +1,5 @@
 <div ng-include="'components/navbar/navbar.html'"></div>
 
-<div id="map-canvas"></div>
 
 <header class="hero-unit" id="banner">
     <div class="container">
@@ -18,13 +17,15 @@
                 <h2>Recent Activity:</h2>
                 <ul class="recent-items">
                     <li ng-repeat="hack in hacks" style="width: 33%; display: inline-block;">
+                        <a href="/hacks/{{hack._id}}">
                         <md-card style="background-color: #00BCD4;">
-                            <img ng-src="api/files/{{hack.imageId}}.jpg" alt="{{hack.name}}">
+                                <img ng-src="api/files/{{hack.imageId}}.jpg" alt="{{hack.name}}">
                             <md-card-content>
                                 <h2>{{hack.name}}</h2>
                                 <p>{{hack.tagline}} | ${{hack.price}}</p>
                             </md-card-content>
                         </md-card>
+                        </a>
                     </li>
                 </ul>
             </div>
