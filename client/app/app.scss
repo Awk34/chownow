@@ -10,6 +10,7 @@ $darkPrimaryColor: #00796B;
 $primaryColor: #009688;
 $lightPrimaryColor: #B2DFDB;
 $textPrimaryColor: #FFFFFF;
+$darkAccentColor: #00adc4;
 $accentColor: #00BCD4;
 $primaryTextColor: #212121;
 $secondaryTextColor: #727272;
@@ -30,8 +31,13 @@ $statusYellow: #faff00;
     padding: 0.2em 0;
 }
 
-.hero-unit {
+.hero-unit, .navbar-default {
     background-color: $primaryColor;
+    color: $textPrimaryColor;
+}
+
+#banner.hero-unit {
+    border-bottom: 1px solid $dividerColor;
 }
 
 .status-light-green {
@@ -49,6 +55,79 @@ $statusYellow: #faff00;
 
 md-tooltip {
     z-index: 1001;
+}
+
+.md-button.md-default-theme.md-accent.md-raised, .md-button.md-default-theme.md-accent.md-fab {
+    color: $textPrimaryColor;
+    background-color: $accentColor;
+}
+.md-button.md-default-theme.md-accent.md-raised:not([disabled]):hover, .md-button.md-default-theme.md-accent.md-raised:not([disabled]):focus, .md-button.md-default-theme.md-accent.md-fab:not([disabled]):hover, .md-button.md-default-theme.md-accent.md-fab:not([disabled]):focus {
+    background-color: $darkAccentColor;
+}
+
+$bgDefault      : $primaryColor;
+$bgHighlight    : $darkPrimaryColor;
+$colDefault     : $textPrimaryColor;
+$colHighlight   : $accentColor;
+.navbar-default {
+    background-color: $bgDefault;
+    border-color: $bgHighlight;
+    .navbar-brand {
+        color: $colDefault;
+        &:hover, &:focus {
+            color: $colHighlight; }}
+    .navbar-text {
+        color: $colDefault; }
+    .navbar-nav {
+        > li {
+            > a {
+                color: $colDefault;
+                &:hover,  &:focus {
+                    color: $colHighlight; }}}
+        > .active {
+            > a, > a:hover, > a:focus {
+                color: $colHighlight;
+                background-color: $bgHighlight; }}
+        > .open {
+            > a, > a:hover, > a:focus {
+                color: $colHighlight;
+                background-color: $bgHighlight; }}}
+    .navbar-toggle {
+        border-color: $bgHighlight;
+        &:hover, &:focus {
+            background-color: $bgHighlight; }
+        .icon-bar {
+            background-color: $colDefault; }}
+    .navbar-collapse,
+    .navbar-form {
+        border-color: $colDefault; }
+    .navbar-link {
+        color: $colDefault;
+        &:hover {
+            color: $colHighlight; }}}
+@media (max-width: 767px) {
+    .navbar-default .navbar-nav .open .dropdown-menu {
+        > li > a {
+            color: $colDefault;
+            &:hover, &:focus {
+                color: $colHighlight; }}
+        > .active {
+            > a, > a:hover, > a:focus, {
+                color: $colHighlight;
+                background-color: $bgHighlight; }}}
+}
+
+.navbar-default {
+    border-color: transparent;
+}
+
+.footer {
+    background-color: $primaryColor;
+    color: $textPrimaryColor;
+    border-top: 1px solid $dividerColor;
+    a {
+        color: $accentColor;
+    }
 }
 
 // Component styles are injected through grunt
