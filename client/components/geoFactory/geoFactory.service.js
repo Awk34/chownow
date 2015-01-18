@@ -15,7 +15,7 @@ angular.module('hackshareApp')
                 zoom: 8,
                 center: latlng
             };
-            map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions);
+            //map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions);
         }
 
         // Public API here
@@ -39,23 +39,26 @@ angular.module('hackshareApp')
                     }
                 })
             }, getLocation: function(position) {
-                var latlng = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
-                geocoder.geocode({'latLng': latlng}, function(results, status) {
-                    if (status == google.maps.GeocoderStatus.OK) {
-                        if (results[1]) {
-                            console.log(results);
-                            map.setZoom(11);
-                            marker = new google.maps.Marker({
-                                position: latlng,
-                                map: map
-                            });
-                            infowindow.setContent(results[1].formatted_address);
-                            infowindow.open(map, marker);
+                return $q(function(resolve, reject) {
+                    var latlng = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+                    geocoder.geocode({'latLng': latlng}, function(results, status) {
+                        if (status == google.maps.GeocoderStatus.OK) {
+                            if (results[0]) {
+                                //map.setZoom(11);
+                                marker = new google.maps.Marker({
+                                    position: latlng,
+                                    map: map
+                                });
+                                infowindow.setContent(results[0].formatted_address);
+                                //infowindow.open(map, marker);
+                                resolve(results);
+                            }
+                        } else {
+                            alert("Geocoder failed due to: " + status);
+                            reject(status);
                         }
-                    } else {
-                        alert("Geocoder failed due to: " + status);
-                    }
-                });
+                    });
+                })
             }
         };
     });
