@@ -4,21 +4,21 @@
 
 'use strict';
 
-var Hack = require('./hack.model');
+var Postmates = require('./postmates.model');
 
 exports.register = function (socket) {
-    Hack.schema.post('save', function (doc) {
+    Postmates.schema.post('save', function (doc) {
         onSave(socket, doc);
     });
-    Hack.schema.post('remove', function (doc) {
+    Postmates.schema.post('remove', function (doc) {
         onRemove(socket, doc);
     });
 }
 
 function onSave(socket, doc, cb) {
-    socket.emit('hack:save', doc);
+    socket.emit('postmates:save', doc);
 }
 
 function onRemove(socket, doc, cb) {
-    socket.emit('hack:remove', doc);
+    socket.emit('postmates:remove', doc);
 }
